@@ -1,0 +1,13 @@
+Index: ruby-redcloth/lib/redcloth/version.rb
+===================================================================
+--- ruby-redcloth.orig/lib/redcloth/version.rb
++++ ruby-redcloth/lib/redcloth/version.rb
+@@ -2,7 +2,7 @@ module RedCloth
+   module VERSION
+     MAJOR = 4
+     MINOR = 3
+-    TINY  = 1
++    TINY  = 2
+ #    RELEASE_CANDIDATE = 0
+ 
+     STRING = [MAJOR, MINOR, TINY].compact.join('.')

@@ -1,0 +1,26 @@
+Description: Replace deprecated YAML.load_documents
+The .load_documents method is deprecated and seems to have been removed
+entirely in the upcoming Ruby 2.5.
+
+(https://github.com/jgarber/redcloth/commit/00b55ace17ed408b1b6129e1ba6c90fd4f0a6d2c)
+
+Author: Lucas Albuquerque Medeiros de Moura <lucas.moura128@gmail.com>
+Last-Update: 2018-02-04
+
+--- a/spec/spec_helper.rb
++++ b/spec/spec_helper.rb
+@@ -26,11 +26,11 @@
+   Dir[File.join(File.dirname(__FILE__), *%w[fixtures *.yml])].each do |testfile|
+     testgroup = File.basename(testfile, '.yml')
+     num = 0
+-    YAML::load_documents(File.open(testfile)) do |doc|
++    YAML::load_stream(File.open(testfile)) do |doc|
+       name = doc['name'] || num
+       @fixtures["#{testgroup} #{name}"] = doc
+       num += 1
+     end
+   end
+   @fixtures
+-end
+\ No newline at end of file
++end
